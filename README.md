@@ -40,3 +40,4 @@ DELETE - returns json with **favorite: false**
 
 1. Please Fork repo into your own private repo
 2. Please invite [@carmona](https://github.com/carmona), [@ch3w](https://github.com/ch3w), [@rrsowingo](https://github.com/rrsowingo) and [@melaniemuzos](https://github.com/melaniemuzos) for offical submission
+3. Please do not submit a pull request
