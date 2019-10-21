@@ -8,15 +8,17 @@ We've got two mocked up REST endpoints, one for a list of products and one for a
 
 Your challenge is to work on this seed project to fetch the list of products and display them on a template according to this [figma design](https://www.figma.com/file/cwdrJAjr9k8HbNpVCTlSPy/Sowingo_Marketplace_Test) and:
 
-- display all listed products
-- add to and remove from cart with bubble update (locally, no endpoint for that) 
-- make changes to favorite status and keep state changes in memory
-- filter list in real time through the search input on top
-- filter for favorites or on-cart items (ie. when clicking favorites or cart)
+- display all listed products (/1)
+- add to and remove from cart with bubble update (locally, no endpoint for that)(/3)
+- make changes to favorite status and keep state changes in memory (/2)
+- filter list in real time through the search input on top (/1)
+- filter for favorites or on-cart items (ie. when clicking favorites or cart) (/2)
 
 Bonus points if you can also:
-- use a CSS pre-processor such as LESS or SASS (you choose, but commit both source and compiled files if you do)
-- make it responsive (you can find pre-made classes on the libs included)
+- use a CSS pre-processor such as LESS or SASS (you choose, but commit both source and compiled files if you do) (/1)
+- make it responsive (you can find pre-made classes on the libs included)(/1)
+
+Total /9 (+2 bonus)
 
 ### Stack
 
