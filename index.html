@@ -22,10 +22,47 @@
 
 
   <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">
+    <!-- <span ng-repeat="product in productData">
+      <br ng-if="!($index % 4)" />
+      <span class="col-lg-4">
+          <img src="{{ product.images[0].image }}">
+      </span>
+    </span> -->
 
-    <!-- <div class="flex-container"> -->
-      
-        <div class="product" ng-repeat="x in productData">
+
+    <!-- <div class="row">
+      <div ng-repeat="product in productData">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="col-lg-4">
+            <img src="{{ product.images[0].image }}">
+        </div>
+      </div>
+    </div>
+ -->
+    <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
+      <div class="col-3" ng-if="productData[$index]">
+        <img src="{{ productData[$index].images[0].image }}">
+        <p>{{ productData[$index].name }}</p>
+      </div>
+      <div class="col-3" ng-if="productData[$index + 1]">
+        <img src="{{ productData[$index + 1].images[0].image }}">
+        <p>{{ productData[$index + 1].name }}</p>
+      </div>
+      <div class="col-3" ng-if="productData[$index + 2]">
+        <img src="{{ productData[$index + 2].images[0].image }}">
+        <p>{{ productData[$index + 2].name }}</p>
+      </div>
+      <div class="col-3" ng-if="productData[$index + 3]">
+        <img src="{{ productData[$index + 3].images[0].image }}">
+        <p>{{ productData[$index + 3].name }}</p>
+      </div>
+    </div>
+
+
+      <!-- <div class="row">
+        <div class="product" ng-repeat="x in productData" ng-if="$index % 4 == 0" class="row">
+          <h2>here</h2>
+
           <div ng-if="($index + 5) % 4 == 1" class="row">
             <div class="col-3">
               <h1>{{ $index }} here</h1>
@@ -39,10 +76,8 @@
               <img src="{{ x.images[0].image }}">
             </div>
           </div>
-        </div>
-    <!-- </div> -->
-
-  </div>
+        </div> -->
+    </div>
 </body>
 
 </html>
