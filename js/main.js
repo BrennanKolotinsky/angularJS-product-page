@@ -1,4 +1,4 @@
-angular.module('sowingoModule', [])
+angular.module('sowingoModule', ['ngMaterial'])
 	.factory('RestServices', ['$http', function($http) {
 
 		var services = {};
@@ -21,5 +21,7 @@ angular.module('sowingoModule', [])
 
 			console.log(res.data.products);
 		});
+
+		$scope.user = {name: 'yay'};
 
 	}]);

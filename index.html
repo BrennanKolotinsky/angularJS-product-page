@@ -8,33 +8,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fafafa">
 
-  <!-- font awesome -->
-  <script src="https://kit.fontawesome.com/69a0b114a0.js" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+  <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.2/angular-material.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-aria.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <!-- angular code -->
   <script src="js/main.js"></script>
-  
-  <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">    
+
+  <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">   
+
     <img class="logo" src="images/sowingo-logo.jpeg">
 
-    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
       <div class="searchBox">
-        <md-input-container>
-          <label>Title</label>
-          <input ng-model="words">
-        </md-input-container>
-        <!-- <i class="fontAwesome fas fa-search"></i> -->
+        
+        <md-content layout-padding="">
+            <form name="userForm">
+              <md-input-container>
+                <i class="material-icons">
+                  search
+                </i>
+                <input class='searchBar' type="text" ng-model="user.name">
+                <label>Search by product name, manufacturer, SKU, keyword</label>
+              </md-input-container>
+            </form>
+        </md-content>
       </div>
-    </md-content>
 
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
       <div class="col-3" ng-if="productData[$index]">
