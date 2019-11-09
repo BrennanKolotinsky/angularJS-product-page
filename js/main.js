@@ -17,8 +17,7 @@ angular.module('sowingoModule', [])
 		$scope.words = StateManager.words;
 
 		RestServices.getProducts.then(function success(res) {
-			$scope.productData = res.data.products;
-			// let's loop over the elements to decide which to add display functionality
+			$scope.productData = $scope.allProductData = res.data.products; // this stores all of the data
 
 			console.log(res.data.products);
 		});

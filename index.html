@@ -7,6 +7,10 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fafafa">
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/69a0b114a0.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -19,65 +23,46 @@
   <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.js"></script>
   <script src="js/main.js"></script>
   
+  <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">    
+    <img class="logo" src="images/sowingo-logo.jpeg">
 
-
-  <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">
-    <!-- <span ng-repeat="product in productData">
-      <br ng-if="!($index % 4)" />
-      <span class="col-lg-4">
-          <img src="{{ product.images[0].image }}">
-      </span>
-    </span> -->
-
-
-    <!-- <div class="row">
-      <div ng-repeat="product in productData">
-        <div class="clearfix" ng-if="$index % 3 == 0"></div>
-        <div class="col-lg-4">
-            <img src="{{ product.images[0].image }}">
-        </div>
+    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+      <div class="searchBox">
+        <md-input-container>
+          <label>Title</label>
+          <input ng-model="words">
+        </md-input-container>
+        <!-- <i class="fontAwesome fas fa-search"></i> -->
       </div>
-    </div>
- -->
+    </md-content>
+
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
       <div class="col-3" ng-if="productData[$index]">
-        <img src="{{ productData[$index].images[0].image }}">
+        <img ng-if="productData[$index].images[0].image" class ='prodImage' src="{{ productData[$index].images[0].image }}">
+        <img ng-if="!productData[$index].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
+
         <p>{{ productData[$index].name }}</p>
       </div>
       <div class="col-3" ng-if="productData[$index + 1]">
-        <img src="{{ productData[$index + 1].images[0].image }}">
+        <img ng-if="productData[$index + 1].images[0].image" class='prodImage' src="{{ productData[$index + 1].images[0].image }}">
+        <img ng-if="!productData[$index + 1].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
+
         <p>{{ productData[$index + 1].name }}</p>
       </div>
       <div class="col-3" ng-if="productData[$index + 2]">
-        <img src="{{ productData[$index + 2].images[0].image }}">
+        <img ng-if="productData[$index + 2].images[0].image" class='prodImage' src="{{ productData[$index + 2].images[0].image }}">
+        <img ng-if="!productData[$index + 2].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
+
         <p>{{ productData[$index + 2].name }}</p>
       </div>
       <div class="col-3" ng-if="productData[$index + 3]">
-        <img src="{{ productData[$index + 3].images[0].image }}">
+        <img ng-if="productData[$index + 3].images[0].image" class='prodImage' src="{{ productData[$index + 3].images[0].image }}">
+        <img ng-if="!productData[$index + 3].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
+
         <p>{{ productData[$index + 3].name }}</p>
       </div>
     </div>
-
-
-      <!-- <div class="row">
-        <div class="product" ng-repeat="x in productData" ng-if="$index % 4 == 0" class="row">
-          <h2>here</h2>
-
-          <div ng-if="($index + 5) % 4 == 1" class="row">
-            <div class="col-3">
-              <h1>{{ $index }} here</h1>
-              <img src="{{ x.images[0].image }}">
-            </div>
-          </div>
-
-          <div ng-if="($index + 5) % 4 !== 1">
-            <div class="col-3">
-              <h1>{{ $index }} here</h1>
-              <img src="{{ x.images[0].image }}">
-            </div>
-          </div>
-        </div> -->
-    </div>
+  </div>
 </body>
 
 </html>

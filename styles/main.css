@@ -1,19 +1,20 @@
-/*.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: DodgerBlue;
+/*@img-size: 200px;*/
+
+img.prodImage {
+	height: 200px;
+	width: 200px;
+	border: 1px solid black;
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 8px;
-}*/
+img.logo {
+	height: 135px;
+	width: 198px;
+}
 
-img {
-	height: 100px;
-	width: 100px;
+.fontAwesome {
+	font-size: 32px;
+}
+
+div.searchBox {
+	margin: 32px 0;
 }
