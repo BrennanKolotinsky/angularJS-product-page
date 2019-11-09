@@ -18,8 +18,9 @@ angular.module('sowingoModule', [])
 
 		RestServices.getProducts.then(function success(res) {
 			$scope.productData = res.data.products;
+			// let's loop over the elements to decide which to add display functionality
+
 			console.log(res.data.products);
 		});
 
 	}]);
-	
