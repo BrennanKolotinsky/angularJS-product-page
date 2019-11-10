@@ -1,9 +1,10 @@
 /*@img-size: 200px;*/
 
 img.prodImage {
-	height: 200px;
-	width: 200px;
+	height: 240px;
+	width: 240px;
 	border: 1px solid black;
+	margin-top: 12px;
 }
 
 img.logo {
@@ -31,6 +32,7 @@ div.searchBox {
 .prodName {
 	padding-top: 12px;
 	height: 100px;
+	text-align: center;
 }
 
 .pricing {
@@ -39,7 +41,8 @@ div.searchBox {
 
 .heart {
 	border: 1px solid red;
-	margin-left: 140px;
+	/*margin-left: 140px;*/
+	float: right;
 	color: red;
 }
 
@@ -53,6 +56,8 @@ div.searchBox {
 
 .cart {
 	border: 1px solid black;
+	float: right;
+	margin-bottom: 12px;
 }
 
 .product {
