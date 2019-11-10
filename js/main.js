@@ -46,7 +46,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 					var id = product.id;
 
 					// if the item is liked in local storage, continue to like the item
-					if (localStorage.getItem(id + '-favorite')) {
+					if (localStorage.getItem(id + '-favorite') == "true") {
 						$scope.likedProds.push(product); // let's throw the product in our list of liked products
 						
 						var elem = angular.element(document.querySelector('#heart' + id));
@@ -104,10 +104,9 @@ angular.module('sowingoModule', ['ngMaterial'])
 				angular.forEach($scope.likedProds, function(likedProduct, index) {
 					if (product.id === likedProduct.id) {
 						$scope.likedProds.splice(index, 1);
+						localStorage.setItem(likedProduct.id + '-favorite', false);
 					}
 				});
-
-				localStorage.setItem(product.id + '-favorite', false);
 			}
 		}
 
