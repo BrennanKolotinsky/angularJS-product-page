@@ -7,22 +7,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 			method: 'GET',
 			url: 'https://demo1064913.mockable.io/products'
 		});
-
-		// services.getFavorites = $http({
-		// 	method: 'GET',
-		// 	url: 'https://demo1064913.mockable.io/favorites'
-		// });
-
-		// services.addFavorite = function() {
-
-		// 	$http({
-		// 		method: 'POST',
-		// 		url: 'https://demo1064913.mockable.io/favorites',
-		// 		data: {
-		// 			"favorite": "true"
-		// 		}
-		// 	});
-		// };
 	  	
 		return services;
 	}])
@@ -55,19 +39,24 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 		RestServices.getProducts.then(function success(res) {
 			$scope.productData = $scope.allProductData = res.data.products; // this stores all of the data
-			$scope.loaded = true;
+			
+			// loop over each of the products and check local storage to add applicable likes
+			$timeout(function() {
+				angular.forEach($scope.productData, function(product) {
+					var id = product.id;
 
-			// let's grab the favorited products that way they are saved throughout the app
-			// RestServices.getFavorites.then(
-			// 	function success(res) {
-			// 		console.log('here');
-			// 	}, function failure(res) {
-			// 		console.log('failed');
-			// 	}
-			// );
+					// if the item is liked in local storage, continue to like the item
+					if (localStorage.getItem(id + '-favorite')) {
+						$scope.likedProds.push(product); // let's throw the product in our list of liked products
+						
+						var elem = angular.element(document.querySelector('#heart' + id));
+						StateManager.addClass('liked', elem); // let's add the like
+					}
+				});	
 
-			// RestServices.addFavorite();
-
+				$scope.loaded = true;
+			}, 50)
+			
 			console.log(res.data.products);
 		});
 
@@ -108,7 +97,8 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 			// let's add the product to the liked list
 			if (liked) {
-				$scope.likedProds.push(product);
+				$scope.likedProds.push(product); // update the list
+				localStorage.setItem(product.id + '-favorite', true); // add to local storage
 			} else {
 				// let's loop over and remove the appropriate product from our liked list
 				angular.forEach($scope.likedProds, function(likedProduct, index) {
@@ -116,9 +106,9 @@ angular.module('sowingoModule', ['ngMaterial'])
 						$scope.likedProds.splice(index, 1);
 					}
 				});
-			}
 
-			// console.log($scope.likedProds);
+				localStorage.setItem(product.id + '-favorite', false);
+			}
 		}
 
 		$scope.addToCart = function(event, product) {
@@ -136,7 +126,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 				});
 			}
 
-			// console.log($scope.inCart);
 		}
 
 		function updateIcons() {
@@ -144,7 +133,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 			// let's add the likes and add-to-cart clicks on the items
 			angular.forEach($scope.inCart, function(cartedProds) {
 				var elem = angular.element(document.querySelector('#cart' + cartedProds.id));
-				console.log(elem);
 				StateManager.addClass('inCart', elem);
 			});
 
