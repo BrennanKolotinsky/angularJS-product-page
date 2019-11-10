@@ -7,6 +7,7 @@ img.prodImage {
 }
 
 img.logo {
+	margin-top: 32px;
 	height: 135px;
 	width: 198px;
 }

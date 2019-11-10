@@ -35,41 +35,16 @@
 
     <img class="logo" src="images/sowingo-logo.jpeg">
 
-    <div class="searchBox">
-      
-      <md-content layout-padding="">
-          <form name="userForm">
-            <md-input-container>
-              <div class='searchBlock'>
-                <i class="material-icons paddingTop">
-                  search
-                </i>
-                <input class='searchBar ng-pristine ng-valid md-input ng-empty ng-touched' type="text" ng-model="currentSearch.word" ng-change="search();">
-              </div>
-              <label>Search by product name, manufacturer, SKU, keyword</label>
-            </md-input-container>
-          </form>
-      </md-content>
-    </div>
-
     <form layout layout-align="center" layout-padding>
       <div layout="row" flex>
-          <md-input-container flex class="md-icon-float md-block md-title">
-              <label>Your font number</label>
-              <!-- below is the material icons -->
-              <md-icon class="material-icons">phone</md-icon>
-              <input type="text">
-          </md-input-container>
-          <div>
-              <md-button class="md-raised">
-              <!-- below is the material icons -->
-                  <md-icon class="material-icons">search</md-icon>
-              </md-button>
-          </div>
+        <md-input-container flex class="md-icon-float md-block md-title">
+            <label>Search by product name, manufacturer, SKU, keyword</label>
+            <!-- below is the material icons -->
+            <md-icon class="material-icons">search</md-icon>
+            <input type="text" ng-model="currentSearch.word" ng-change="search();">
+        </md-input-container>
       </div>  
     </form>
-
-    <md-button class="md-primary">Primary Button</md-button>
 
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
       <div id="{{ productData[$index].id }}" class="col-3 product" ng-if="productData[$index]">
