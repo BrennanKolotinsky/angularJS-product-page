@@ -39,10 +39,11 @@ angular.module('sowingoModule', ['ngMaterial'])
 			// else let's find matching words
 			else {
 				var searchedArr = [];
-				angular.forEach($scope.allProductData, function (value, key) {
+				var searchedWord = $scope.currentSearch.word;
+				angular.forEach($scope.allProductData, function (product, key) {
 					// we'll run our check which I store in state manager for future use
-					if (StateManager.searchMatch(value.name, $scope.currentSearch.word)) {
-						searchedArr.push(value);	
+					if (StateManager.searchMatch(product.name, searchedWord) || StateManager.searchMatch(product.manufacturer.name, searchedWord) || StateManager.searchMatch(product.manufacturer.sku, searchedWord) || StateManager.searchMatch(product.description, searchedWord)) {
+						searchedArr.push(product);	
 					}
 	            });
 
