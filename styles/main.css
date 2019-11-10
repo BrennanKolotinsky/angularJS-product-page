@@ -3,7 +3,6 @@
 img.prodImage {
 	height: 240px;
 	width: 240px;
-	border: 1px solid black;
 	margin-top: 12px;
 }
 
@@ -85,6 +84,14 @@ p.prodName {
 	margin: 0 6px;
 }
 
+body {
+	line-height: 1;
+}
+
 .iconTop {
 	font-size: 14px !important;
+}
+
+.inputForm {
+	height: 120px;
 }
