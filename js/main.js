@@ -71,9 +71,16 @@ angular.module('sowingoModule', ['ngMaterial'])
 			// let's add the product to the liked list
 			if (liked) {
 				$scope.likedProds.push(product);
+			} else {
+				// let's loop over and remove the appropriate product from our liked list
+				angular.forEach($scope.likedProds, function(likedProduct, key) {
+					if (product.id === likedProduct.id) {
+						console.log(likedProduct.id);
+					}
+				});
 			}
 
-			console.log($scope.likedProds);
+			// console.log($scope.likedProds);
 			
 		}
 
