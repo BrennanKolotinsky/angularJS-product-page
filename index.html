@@ -60,8 +60,8 @@
 
           <p class='pricing'>Your Price: $ {{ productData[$index].vendor_inventory[0].list_price }}</p>
 
-          <i class="material-icons heart" ng-click="like($event, productData[$index])">favorite_border</i>
-          <i class="material-icons cart" ng-click="addToCart($event, productData[$index])">shopping_cart</i>
+          <i id="heart{{ productData[$index].id }}" class="material-icons heart" ng-click="like($event, productData[$index])">favorite_border</i>
+          <i id="cart{{ productData[$index].id }}" class="material-icons cart" ng-click="addToCart($event, productData[$index])">shopping_cart</i>
 
         </div>
         <div id="{{ productData[$index + 1].id }}" class="col-3 product" ng-if="productData[$index + 1]">
@@ -72,8 +72,8 @@
 
           <p class='pricing'>Your Price: $ {{ productData[$index + 1].vendor_inventory[0].list_price }}</p>
 
-          <i class="material-icons heart" ng-click="like($event, productData[$index + 1])">favorite_border</i>
-          <i class="material-icons cart" ng-click="addToCart($event, productData[$index + 1])">shopping_cart</i>
+          <i id="heart{{ productData[$index + 1].id }}" class="material-icons heart" ng-click="like($event, productData[$index + 1])">favorite_border</i>
+          <i id="cart{{ productData[$index + 1].id }}" class="material-icons cart" ng-click="addToCart($event, productData[$index + 1])">shopping_cart</i>
 
         </div>
         <div id="{{ productData[$index + 2].id }}" class="col-3 product" ng-if="productData[$index + 2]">
@@ -84,8 +84,8 @@
 
           <p class='pricing'>Your Price: $ {{ productData[$index + 2].vendor_inventory[0].list_price }}</p>
 
-          <i class="material-icons heart" ng-click="like($event, productData[$index + 2])">favorite_border</i>
-          <i class="material-icons cart" ng-click="addToCart($event, productData[$index + 2])">shopping_cart</i>
+          <i id="heart{{ productData[$index + 2].id }}" class="material-icons heart" ng-click="like($event, productData[$index + 2])">favorite_border</i>
+          <i id="cart{{ productData[$index + 2].id }}" class="material-icons cart" ng-click="addToCart($event, productData[$index + 2])">shopping_cart</i>
 
         </div>
         <div id="{{ productData[$index + 3].id }}" class="col-3 product" ng-if="productData[$index + 3]">
@@ -96,8 +96,8 @@
 
           <p class='pricing'>Your Price: $ {{ productData[$index + 3].vendor_inventory[0].list_price }}</p>
 
-          <i class="material-icons heart" ng-click="like($event, productData[$index + 3])">favorite_border</i>
-          <i class="material-icons cart" ng-click="addToCart($event, productData[$index + 3])">shopping_cart</i>
+          <i id="heart{{ productData[$index + 3].id }}" class="material-icons heart" ng-click="like($event, productData[$index + 3])">favorite_border</i>
+          <i id="cart{{ productData[$index + 3].id }}" class="material-icons cart" ng-click="addToCart($event, productData[$index + 3])">shopping_cart</i>
 
         </div>
       </div>

@@ -33,17 +33,23 @@ angular.module('sowingoModule', ['ngMaterial'])
 		}
 
 		this.classSwitch = function(classToSwitch, element) {
-			if (element.classList.contains(classToSwitch)) {
-				element.classList.remove(classToSwitch);
+			if (angular.element(element).hasClass(classToSwitch)) {
+				angular.element(element).removeClass(classToSwitch);
 				return false;	
 			} else {
-				console.log('here');
-				element.classList.add(classToSwitch);
+				angular.element(element).addClass(classToSwitch);
 				return true;
 			}
 		}
+
+		this.addClass = function(classToSwitch, element) {
+			if (angular.element(element).hasClass(classToSwitch)) {
+			} else {
+				angular.element(element).addClass(classToSwitch);
+			}
+		}
 	})
-	.controller('sowingoController', ['$scope', 'RestServices', 'StateManager', function($scope, RestServices, StateManager) {
+	.controller('sowingoController', ['$scope', '$timeout', 'RestServices', 'StateManager', function($scope, $timeout, RestServices, StateManager) {
 
 		$scope.words = StateManager.words;
 
@@ -134,18 +140,18 @@ angular.module('sowingoModule', ['ngMaterial'])
 		}
 
 		function updateIcons() {
-			$scope.$apply(); // the UI doesn't update here in time -- causing minor state problems when trying to add a class
 
 			// let's add the likes and add-to-cart clicks on the items
 			angular.forEach($scope.inCart, function(cartedProds) {
-				var elem = document.getElementById(cartedProds.id).querySelector('.cart');
-				StateManager.classSwitch('inCart', elem);
+				var elem = angular.element(document.querySelector('#cart' + cartedProds.id));
+				console.log(elem);
+				StateManager.addClass('inCart', elem);
 			});
 
 			// let's add the likes and add-to-cart clicks on the items
 			angular.forEach($scope.likedProds, function(likedProds) {
-				var elem = document.getElementById(likedProds.id).querySelector('.heart');
-				StateManager.classSwitch('liked', elem);
+				var elem = angular.element(document.querySelector('#heart' + likedProds.id));
+				StateManager.addClass('liked', elem);
 			});
 		}
 
@@ -164,7 +170,10 @@ angular.module('sowingoModule', ['ngMaterial'])
 				$scope.displayingCart = true;
 			}
 
-			updateIcons();
+			// need a timeout to prevent a bug -- could also try re-applying scope, but this is a better solution
+			$timeout(function() {
+				updateIcons();	
+			}, 50)
 		}
 
 		$scope.displayLiked = function(event) {
@@ -182,6 +191,8 @@ angular.module('sowingoModule', ['ngMaterial'])
 				$scope.displayingLiked = true;
 			}
 
-			updateIcons();
+			$timeout(function() {
+				updateIcons();	
+			}, 50)
 		}
 	}]);
