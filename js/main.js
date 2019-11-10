@@ -40,7 +40,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 		$scope.currentSearch = {word: ''};
 		$scope.likedProds = [];
-		$scope.favoriteProds = [];
+		$scope.inCart = [];
 
 		$scope.search = function() {
 
@@ -73,9 +73,9 @@ angular.module('sowingoModule', ['ngMaterial'])
 				$scope.likedProds.push(product);
 			} else {
 				// let's loop over and remove the appropriate product from our liked list
-				angular.forEach($scope.likedProds, function(likedProduct, key) {
+				angular.forEach($scope.likedProds, function(likedProduct, index) {
 					if (product.id === likedProduct.id) {
-						console.log(likedProduct.id);
+						$scope.likedProds.splice(index, 1);
 					}
 				});
 			}
@@ -87,6 +87,19 @@ angular.module('sowingoModule', ['ngMaterial'])
 		$scope.addToCart = function(event, product) {
 			var elem = event.currentTarget;
 			var inCart = StateManager.classSwitch('inCart', elem);
+
+			if (inCart) {
+				$scope.inCart.push(product);
+			} else {
+				// let's loop over and remove the appropriate product from our liked list
+				angular.forEach($scope.inCart, function(cartedProds, index) {
+					if (product.id === cartedProds.id) {
+						$scope.inCart.splice(index, 1);
+					}
+				});
+			}
+
+			// console.log($scope.inCart);
 		}
 
 	}]);
