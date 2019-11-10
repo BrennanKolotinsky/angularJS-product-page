@@ -84,3 +84,7 @@ p.prodName {
 	background-color: rgb(255, 230, 234);
 	margin: 0 6px;
 }
+
+.iconTop {
+	font-size: 14px !important;
+}

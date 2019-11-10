@@ -116,8 +116,12 @@ angular.module('sowingoModule', ['ngMaterial'])
 			var inCart = StateManager.classSwitch('inCart', elem);
 
 			if (inCart) {
+				elem.innerHTML = "remove_shopping_cart";
 				$scope.inCart.push(product);
+
 			} else {
+				elem.innerHTML = "add_shopping_cart";
+
 				// let's loop over and remove the appropriate product from our liked list
 				angular.forEach($scope.inCart, function(cartedProds, index) {
 					if (product.id === cartedProds.id) {
