@@ -7,6 +7,14 @@ angular.module('sowingoModule', ['ngMaterial'])
 			method: 'GET',
 			url: 'https://demo1064913.mockable.io/products'
 		});
+
+		// service.addFavorite = function() {
+
+		// 	// $http({
+		// 	// 	method: 'POST',
+		// 	// 	url: 'https://demo1064913.mockable.io/favorites',
+		// 	// })
+		// };
 	  	
 		return services;
 	}])
