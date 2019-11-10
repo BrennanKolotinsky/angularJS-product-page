@@ -1,6 +1,7 @@
 angular.module('sowingoModule', ['ngMaterial'])
 	.factory('RestServices', ['$http', function($http) {
 
+		// this creates rest services for reuse between future controllers
 		var services = {};
 		services.getProducts = $http({
 			method: 'GET',
@@ -10,7 +11,12 @@ angular.module('sowingoModule', ['ngMaterial'])
 		return services;
 	}])
 	.service('StateManager', function() {
+		// this service predefines a bunch of state to easily pass content between pages
 		this.words = 'awesome';
+
+		this.searchMatch = function(keyword, search) {
+			return keyword.toUpperCase().startsWith(search.toUpperCase());
+		}
 	})
 	.controller('sowingoController', ['$scope', 'RestServices', 'StateManager', function($scope, RestServices, StateManager) {
 
@@ -22,21 +28,26 @@ angular.module('sowingoModule', ['ngMaterial'])
 			console.log(res.data.products);
 		});
 
-		$scope.startingSearch = {word: ''};
+		$scope.currentSearch = {word: ''};
 
 		$scope.search = function() {
-			console.log($scope.words);
+
+			// if no word is entered let's display all the products
+			if ($scope.currentSearch.word === '') {
+				$scope.productData = $scope.allProductData;
+			}
+			// else let's find matching words
+			else {
+				var searchedArr = [];
+				angular.forEach($scope.allProductData, function (value, key) {
+					// we'll run our check which I store in state manager for future use
+					if (StateManager.searchMatch(value.name, $scope.currentSearch.word)) {
+						searchedArr.push(value);	
+					}
+	            });
+
+	            $scope.productData = searchedArr;
+			}
 			
-			var searchedArr = [];
-			angular.forEach($scope.productData, function (value, key) {
-				if (value.name == '# 110 Crown Pliers') {
-					searchedArr.push(value);	
-				}
-            });
-
-            $scope.productData = searchedArr;
-
-			// $scope.productData = '';
 		}
-
 	}]);
