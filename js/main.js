@@ -32,6 +32,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 		RestServices.getProducts.then(function success(res) {
 			$scope.productData = $scope.allProductData = res.data.products; // this stores all of the data
+			$scope.loaded = true;
 
 			console.log(res.data.products);
 		});
@@ -43,6 +44,8 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 		$scope.displayingCart = false;
 		$scope.displayingLiked = false;
+
+		$scope.loaded = false;
 
 		$scope.search = function() {
 

@@ -64,3 +64,9 @@ p.prodName {
 .product {
 	border: 1px solid black;
 }
+
+.footer {
+	margin-top: 80px;
+	height: 160px;
+	background-color: black;
+}
