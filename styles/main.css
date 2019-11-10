@@ -21,6 +21,9 @@ div.searchBox {
 	margin: 0 0 32px 0;
 }
 
+body.body {
+}
+
 .searchBar {
 	width: 500px;
 }
@@ -62,7 +65,8 @@ p.prodName {
 }
 
 .product {
-	border: 1px solid black;
+	border: 1px solid rgb(255, 230, 234);
+	background-color: rgba(255, 230, 234, 0.5);
 }
 
 .footer {
