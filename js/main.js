@@ -8,12 +8,20 @@ angular.module('sowingoModule', ['ngMaterial'])
 			url: 'https://demo1064913.mockable.io/products'
 		});
 
-		// service.addFavorite = function() {
+		// services.getFavorites = $http({
+		// 	method: 'GET',
+		// 	url: 'https://demo1064913.mockable.io/favorites'
+		// });
 
-		// 	// $http({
-		// 	// 	method: 'POST',
-		// 	// 	url: 'https://demo1064913.mockable.io/favorites',
-		// 	// })
+		// services.addFavorite = function() {
+
+		// 	$http({
+		// 		method: 'POST',
+		// 		url: 'https://demo1064913.mockable.io/favorites',
+		// 		data: {
+		// 			"favorite": "true"
+		// 		}
+		// 	});
 		// };
 	  	
 		return services;
@@ -29,6 +37,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 				element.classList.remove(classToSwitch);
 				return false;	
 			} else {
+				console.log('here');
 				element.classList.add(classToSwitch);
 				return true;
 			}
@@ -41,6 +50,17 @@ angular.module('sowingoModule', ['ngMaterial'])
 		RestServices.getProducts.then(function success(res) {
 			$scope.productData = $scope.allProductData = res.data.products; // this stores all of the data
 			$scope.loaded = true;
+
+			// let's grab the favorited products that way they are saved throughout the app
+			// RestServices.getFavorites.then(
+			// 	function success(res) {
+			// 		console.log('here');
+			// 	}, function failure(res) {
+			// 		console.log('failed');
+			// 	}
+			// );
+
+			// RestServices.addFavorite();
 
 			console.log(res.data.products);
 		});
@@ -93,7 +113,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 			}
 
 			// console.log($scope.likedProds);
-			
 		}
 
 		$scope.addToCart = function(event, product) {
@@ -114,6 +133,22 @@ angular.module('sowingoModule', ['ngMaterial'])
 			// console.log($scope.inCart);
 		}
 
+		function updateIcons() {
+			$scope.$apply(); // the UI doesn't update here in time -- causing minor state problems when trying to add a class
+
+			// let's add the likes and add-to-cart clicks on the items
+			angular.forEach($scope.inCart, function(cartedProds) {
+				var elem = document.getElementById(cartedProds.id).querySelector('.cart');
+				StateManager.classSwitch('inCart', elem);
+			});
+
+			// let's add the likes and add-to-cart clicks on the items
+			angular.forEach($scope.likedProds, function(likedProds) {
+				var elem = document.getElementById(likedProds.id).querySelector('.heart');
+				StateManager.classSwitch('liked', elem);
+			});
+		}
+
 		$scope.displayCart = function(event) {
 			var elem = event.currentTarget;
 			$scope.currentSearch.word = '';
@@ -128,6 +163,8 @@ angular.module('sowingoModule', ['ngMaterial'])
 				elem.innerHTML = 'View All';
 				$scope.displayingCart = true;
 			}
+
+			updateIcons();
 		}
 
 		$scope.displayLiked = function(event) {
@@ -144,5 +181,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 				elem.innerHTML = 'View All';
 				$scope.displayingLiked = true;
 			}
+
+			updateIcons();
 		}
 	}]);

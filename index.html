@@ -49,6 +49,7 @@
       <md-button class="Primary" ng-if="!displayingLiked" ng-click="displayCart($event)">View Cart</md-button>
       <md-button class="Primary" ng-if="!displayingCart" ng-click="displayLiked($event)">View Liked</md-button>
 
+      <hr>
 
       <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
         <div id="{{ productData[$index].id }}" class="col-3 product" ng-if="productData[$index]">
