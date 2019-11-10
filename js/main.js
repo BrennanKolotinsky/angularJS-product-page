@@ -12,8 +12,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 	}])
 	.service('StateManager', function() {
 		// this service predefines a bunch of state to easily pass content between pages
-		this.words = 'awesome';
-
 		this.searchMatch = function(keyword, search) {
 			return keyword.toUpperCase().startsWith(search.toUpperCase());
 		}

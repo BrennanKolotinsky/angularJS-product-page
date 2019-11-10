@@ -10,40 +10,66 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
-</head>
 
-<body>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
-  <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.2/angular-material.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-aria.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 
   <!-- angular code -->
   <script src="js/main.js"></script>
+</head>
+
+
+
+<body>
 
   <div class="container" ng-app="sowingoModule" ng-controller="sowingoController">   
 
     <img class="logo" src="images/sowingo-logo.jpeg">
 
-      <div class="searchBox">
-        
-        <md-content layout-padding="">
-            <form name="userForm">
-              <md-input-container>
-                <div class='searchBlock'>
-                  <i class="material-icons paddingTop">
-                    search
-                  </i>
-                  <input class='searchBar ng-pristine ng-valid md-input ng-empty ng-touched' type="text" ng-model="currentSearch.word" ng-change="search();">
-                </div>
-                <label>Search by product name, manufacturer, SKU, keyword</label>
-              </md-input-container>
-            </form>
-        </md-content>
-      </div>
+    <div class="searchBox">
+      
+      <md-content layout-padding="">
+          <form name="userForm">
+            <md-input-container>
+              <div class='searchBlock'>
+                <i class="material-icons paddingTop">
+                  search
+                </i>
+                <input class='searchBar ng-pristine ng-valid md-input ng-empty ng-touched' type="text" ng-model="currentSearch.word" ng-change="search();">
+              </div>
+              <label>Search by product name, manufacturer, SKU, keyword</label>
+            </md-input-container>
+          </form>
+      </md-content>
+    </div>
+
+    <form layout layout-align="center" layout-padding>
+      <div layout="row" flex>
+          <md-input-container flex class="md-icon-float md-block md-title">
+              <label>Your font number</label>
+              <!-- below is the material icons -->
+              <md-icon class="material-icons">phone</md-icon>
+              <input type="text">
+          </md-input-container>
+          <div>
+              <md-button class="md-raised">
+              <!-- below is the material icons -->
+                  <md-icon class="material-icons">search</md-icon>
+              </md-button>
+          </div>
+      </div>  
+    </form>
+
+    <md-button class="md-primary">Primary Button</md-button>
 
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
       <div id="{{ productData[$index].id }}" class="col-3 product" ng-if="productData[$index]">
