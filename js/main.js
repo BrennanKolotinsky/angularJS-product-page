@@ -51,4 +51,13 @@ angular.module('sowingoModule', ['ngMaterial'])
 			}
 			
 		}
+
+		$scope.like = function(event) {
+			if (document.querySelector('.liked') !== null) {
+				event.currentTarget.classList.remove('liked');	
+			} else {
+				event.currentTarget.classList.add('liked');	
+			}
+		}
+
 	}]);

@@ -37,7 +37,7 @@
                   <i class="material-icons paddingTop">
                     search
                   </i>
-                  <input class='searchBar' type="text" ng-model="currentSearch.word" ng-change="search();">
+                  <input class='searchBar ng-pristine ng-valid md-input ng-empty ng-touched' type="text" ng-model="currentSearch.word" ng-change="search();">
                 </div>
                 <label>Search by product name, manufacturer, SKU, keyword</label>
               </md-input-container>
@@ -50,25 +50,45 @@
         <img ng-if="productData[$index].images[0].image" class ='prodImage' src="{{ productData[$index].images[0].image }}">
         <img ng-if="!productData[$index].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
-        <p>{{ productData[$index].name }}</p>
+        <p class='prodName'>{{ productData[$index].name }}</p>
+
+        <p class='pricing'>Your Price: $ {{ productData[$index].vendor_inventory[0].list_price }}</p>
+
+        <i class="material-icons heart" ng-click="like($event)">favorite_border</i>
+
       </div>
       <div class="col-3" ng-if="productData[$index + 1]">
         <img ng-if="productData[$index + 1].images[0].image" class='prodImage' src="{{ productData[$index + 1].images[0].image }}">
         <img ng-if="!productData[$index + 1].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
-        <p>{{ productData[$index + 1].name }}</p>
+        <p class='prodName'>{{ productData[$index + 1].name }}</p>
+
+        <p class='pricing'>Your Price: $ {{ productData[$index + 1].vendor_inventory[0].list_price }}</p>
+
+        <i class="material-icons heart" ng-click="like($event)">favorite_border</i>
+
       </div>
       <div class="col-3" ng-if="productData[$index + 2]">
         <img ng-if="productData[$index + 2].images[0].image" class='prodImage' src="{{ productData[$index + 2].images[0].image }}">
         <img ng-if="!productData[$index + 2].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
-        <p>{{ productData[$index + 2].name }}</p>
+        <p class='prodName'>{{ productData[$index + 2].name }}</p>
+
+        <p class='pricing'>Your Price: $ {{ productData[$index + 2].vendor_inventory[0].list_price }}</p>
+
+        <i class="material-icons heart" ng-click="like($event)">favorite_border</i>
+
       </div>
       <div class="col-3" ng-if="productData[$index + 3]">
         <img ng-if="productData[$index + 3].images[0].image" class='prodImage' src="{{ productData[$index + 3].images[0].image }}">
         <img ng-if="!productData[$index + 3].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
-        <p>{{ productData[$index + 3].name }}</p>
+        <p class='prodName'>{{ productData[$index + 3].name }}</p>
+
+        <p class='pricing'>Your Price: $ {{ productData[$index + 3].vendor_inventory[0].list_price }}</p>
+
+        <i class="material-icons heart" ng-click="like($event)">favorite_border</i>
+        
       </div>
     </div>
   </div>

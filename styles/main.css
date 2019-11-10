@@ -26,3 +26,23 @@ div.searchBox {
 .searchBlock {
 	height: 30px;
 }
+
+.prodName {
+	padding-top: 12px;
+	height: 100px;
+}
+
+.pricing {
+	text-align: center;
+}
+
+.heart {
+	border: 1px solid red;
+	margin-left: 140px;
+	color: red;
+}
+
+.liked {
+	background-color: black;
+
+}
