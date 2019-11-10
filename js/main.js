@@ -17,6 +17,15 @@ angular.module('sowingoModule', ['ngMaterial'])
 		this.searchMatch = function(keyword, search) {
 			return keyword.toUpperCase().startsWith(search.toUpperCase());
 		}
+
+		this.classSwitch = function(classToSwitch, element) {
+			if (document.querySelector('.' + classToSwitch) !== null) {
+				console.log(element);
+				element.classList.remove(classToSwitch);	
+			} else {
+				element.classList.add(classToSwitch);	
+			}
+		}
 	})
 	.controller('sowingoController', ['$scope', 'RestServices', 'StateManager', function($scope, RestServices, StateManager) {
 
@@ -53,19 +62,11 @@ angular.module('sowingoModule', ['ngMaterial'])
 		}
 
 		$scope.like = function(event) {
-			if (document.querySelector('.liked') !== null) {
-				event.currentTarget.classList.remove('liked');	
-			} else {
-				event.currentTarget.classList.add('liked');	
-			}
+			StateManager.classSwitch('liked', event.currentTarget);
 		}
 
 		$scope.addToCart = function(event) {
-			if (document.querySelector('.inCart') !== null) {
-				event.currentTarget.classList.remove('inCart');	
-			} else {
-				event.currentTarget.classList.add('inCart');	
-			}
+			StateManager.classSwitch('inCart', event.currentTarget);
 		}
 
 	}]);

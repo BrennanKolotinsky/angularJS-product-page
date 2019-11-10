@@ -46,7 +46,7 @@
       </div>
 
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
-      <div class="col-3" ng-if="productData[$index]">
+      <div id="{{ product.id }}" class="col-3 product" ng-if="productData[$index]">
         <img ng-if="productData[$index].images[0].image" class ='prodImage' src="{{ productData[$index].images[0].image }}">
         <img ng-if="!productData[$index].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
@@ -58,7 +58,7 @@
         <i class="material-icons cart" ng-click="addToCart($event)">shopping_cart</i>
 
       </div>
-      <div class="col-3" ng-if="productData[$index + 1]">
+      <div id="{{ product.id }}" class="col-3 product" ng-if="productData[$index + 1]">
         <img ng-if="productData[$index + 1].images[0].image" class='prodImage' src="{{ productData[$index + 1].images[0].image }}">
         <img ng-if="!productData[$index + 1].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
@@ -70,7 +70,7 @@
         <i class="material-icons cart" ng-click="addToCart($event)">shopping_cart</i>
 
       </div>
-      <div class="col-3" ng-if="productData[$index + 2]">
+      <div id="{{ product.id }}" class="col-3 product" ng-if="productData[$index + 2]">
         <img ng-if="productData[$index + 2].images[0].image" class='prodImage' src="{{ productData[$index + 2].images[0].image }}">
         <img ng-if="!productData[$index + 2].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
@@ -82,7 +82,7 @@
         <i class="material-icons cart" ng-click="addToCart($event)">shopping_cart</i>
 
       </div>
-      <div class="col-3" ng-if="productData[$index + 3]">
+      <div id="{{ product.id }}" class="col-3 product" ng-if="productData[$index + 3]">
         <img ng-if="productData[$index + 3].images[0].image" class='prodImage' src="{{ productData[$index + 3].images[0].image }}">
         <img ng-if="!productData[$index + 3].images[0].image" class ='prodImage' src="https://static.wixstatic.com/media/25f678_9931d0993f6c43ccb87f2ab04b2665bd~mv2_d_1200_1200_s_2.jpg/v1/fill/w_1200,h_1200,al_c,q_90/file.jpg">
 
