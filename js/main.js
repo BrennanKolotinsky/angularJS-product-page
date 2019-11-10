@@ -69,6 +69,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 		$scope.displayingLiked = false;
 
 		$scope.loaded = false;
+		$scope.changingView = false;
 
 		$scope.search = function() {
 
@@ -145,16 +146,19 @@ angular.module('sowingoModule', ['ngMaterial'])
 		$scope.displayCart = function(event) {
 			var elem = event.currentTarget;
 			$scope.currentSearch.word = '';
+			$scope.changingView = true;
 
 			if ($scope.displayingCart) {
 				$scope.productData = $scope.allProductData;
 
 				elem.innerHTML = 'View Cart';
 				$scope.displayingCart = false;
+				$scope.changingView = false;
 			} else {
 				$scope.productData = $scope.inCart;
 				elem.innerHTML = 'View All';
 				$scope.displayingCart = true;
+				$scope.changingView = false;
 			}
 
 			// need a timeout to prevent a bug -- could also try re-applying scope, but this is a better solution
@@ -166,16 +170,19 @@ angular.module('sowingoModule', ['ngMaterial'])
 		$scope.displayLiked = function(event) {
 			var elem = event.currentTarget;
 			$scope.currentSearch.word = '';
+			$scope.changingView = true;
 
 			if ($scope.displayingLiked) {
 				$scope.productData = $scope.allProductData;
 
 				elem.innerHTML = 'View Liked';
 				$scope.displayingLiked = false;
+				$scope.changingView = false;
 			} else {
 				$scope.productData = $scope.likedProds;
 				elem.innerHTML = 'View All';
 				$scope.displayingLiked = true;
+				$scope.changingView = false;
 			}
 
 			$timeout(function() {

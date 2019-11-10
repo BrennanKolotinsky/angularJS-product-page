@@ -17,19 +17,11 @@ img.logo {
 	font-size: 32px;
 }
 
-div.searchBox {
-	margin: 0 0 32px 0;
-}
-
 body.body {
 }
 
 .searchBar {
 	width: 500px;
-}
-
-.searchBlock {
-	height: 30px;
 }
 
 p.prodName {
@@ -73,4 +65,22 @@ p.prodName {
 	margin-top: 80px;
 	height: 160px;
 	background-color: black;
+}
+
+.btn {
+	height: 50px;
+
+}
+
+.inputRow {
+	border: 1px solid rgb(255, 230, 234);
+	height: 75px;
+	margin-bottom: 56px;
+}
+
+.vr {
+	width: 2px; 
+	height: 60px;
+	background-color: rgb(255, 230, 234);
+	margin: 0 6px;
 }
