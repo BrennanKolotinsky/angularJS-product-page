@@ -19,11 +19,12 @@ angular.module('sowingoModule', ['ngMaterial'])
 		}
 
 		this.classSwitch = function(classToSwitch, element) {
-			if (document.querySelector('.' + classToSwitch) !== null) {
-				console.log(element);
-				element.classList.remove(classToSwitch);	
+			if (element.classList.contains(classToSwitch)) {
+				element.classList.remove(classToSwitch);
+				return false;	
 			} else {
-				element.classList.add(classToSwitch);	
+				element.classList.add(classToSwitch);
+				return true;
 			}
 		}
 	})
@@ -38,6 +39,8 @@ angular.module('sowingoModule', ['ngMaterial'])
 		});
 
 		$scope.currentSearch = {word: ''};
+		$scope.likedProds = [];
+		$scope.favoriteProds = [];
 
 		$scope.search = function() {
 
@@ -61,12 +64,22 @@ angular.module('sowingoModule', ['ngMaterial'])
 			
 		}
 
-		$scope.like = function(event) {
-			StateManager.classSwitch('liked', event.currentTarget);
+		$scope.like = function(event, product) {
+			var elem = event.currentTarget;
+			var liked = StateManager.classSwitch('liked', elem); // will flip the css and return true/false if liked currently
+
+			// let's add the product to the liked list
+			if (liked) {
+				$scope.likedProds.push(product);
+			}
+
+			console.log($scope.likedProds);
+			
 		}
 
-		$scope.addToCart = function(event) {
-			StateManager.classSwitch('inCart', event.currentTarget);
+		$scope.addToCart = function(event, product) {
+			var elem = event.currentTarget;
+			var inCart = StateManager.classSwitch('inCart', elem);
 		}
 
 	}]);
