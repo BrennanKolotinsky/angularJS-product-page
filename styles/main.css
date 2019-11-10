@@ -44,5 +44,12 @@ div.searchBox {
 
 .liked {
 	background-color: black;
+}
 
+.inCart {
+	background-color: aqua;
+}
+
+.cart {
+	border: 1px solid black;
 }

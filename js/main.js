@@ -60,4 +60,12 @@ angular.module('sowingoModule', ['ngMaterial'])
 			}
 		}
 
+		$scope.addToCart = function(event) {
+			if (document.querySelector('.inCart') !== null) {
+				event.currentTarget.classList.remove('inCart');	
+			} else {
+				event.currentTarget.classList.add('inCart');	
+			}
+		}
+
 	}]);
