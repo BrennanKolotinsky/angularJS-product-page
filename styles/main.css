@@ -29,7 +29,7 @@ div.searchBox {
 	height: 30px;
 }
 
-.prodName {
+p.prodName {
 	padding-top: 12px;
 	height: 100px;
 	text-align: center;
@@ -58,6 +58,7 @@ div.searchBox {
 	border: 1px solid black;
 	float: right;
 	margin-bottom: 12px;
+	margin-right: 6px;
 }
 
 .product {

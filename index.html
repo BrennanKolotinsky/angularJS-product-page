@@ -46,6 +46,10 @@
       </div>  
     </form>
 
+    <md-button class="Primary" ng-click="displayCart($event)">View Cart</md-button>
+    <md-button class="Primary" ng-click="displayLiked($event)">View Liked</md-button>
+
+
     <div ng-repeat="product in productData" ng-if="$index % 4 == 0" class="row">
       <div id="{{ productData[$index].id }}" class="col-3 product" ng-if="productData[$index]">
         <img ng-if="productData[$index].images[0].image" class ='prodImage' src="{{ productData[$index].images[0].image }}">

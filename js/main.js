@@ -37,8 +37,12 @@ angular.module('sowingoModule', ['ngMaterial'])
 		});
 
 		$scope.currentSearch = {word: ''};
+		
 		$scope.likedProds = [];
 		$scope.inCart = [];
+
+		$scope.displayingCart = false;
+		$scope.displayingLiked = false;
 
 		$scope.search = function() {
 
@@ -59,7 +63,6 @@ angular.module('sowingoModule', ['ngMaterial'])
 
 	            $scope.productData = searchedArr;
 			}
-			
 		}
 
 		$scope.like = function(event, product) {
@@ -100,4 +103,35 @@ angular.module('sowingoModule', ['ngMaterial'])
 			// console.log($scope.inCart);
 		}
 
+		$scope.displayCart = function(event) {
+			var elem = event.currentTarget;
+			$scope.currentSearch.word = '';
+
+			if ($scope.displayingCart) {
+				$scope.productData = $scope.allProductData;
+
+				elem.innerHTML = 'View Cart';
+				$scope.displayingCart = false;
+			} else {
+				$scope.productData = $scope.inCart;
+				elem.innerHTML = 'View All';
+				$scope.displayingCart = true;
+			}
+		}
+
+		$scope.displayLiked = function(event) {
+			var elem = event.currentTarget;
+			$scope.currentSearch.word = '';
+
+			if ($scope.displayingLiked) {
+				$scope.productData = $scope.allProductData;
+
+				elem.innerHTML = 'View Liked';
+				$scope.displayingLiked = false;
+			} else {
+				$scope.productData = $scope.likedProds;
+				elem.innerHTML = 'View All';
+				$scope.displayingLiked = true;
+			}
+		}
 	}]);
