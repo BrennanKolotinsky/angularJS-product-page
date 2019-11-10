@@ -155,7 +155,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 			if ($scope.displayingCart) {
 				$scope.productData = $scope.allProductData;
 
-				elem.innerHTML = 'View Cart';
+				elem.innerHTML = '<i class="material-icons iconTop">shopping_cart</i> View Cart';
 				$scope.displayingCart = false;
 				$scope.changingView = false;
 			} else {
@@ -179,7 +179,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 			if ($scope.displayingLiked) {
 				$scope.productData = $scope.allProductData;
 
-				elem.innerHTML = 'View Liked';
+				elem.innerHTML = '<i class="material-icons iconTop">favorite</i> View Liked';
 				$scope.displayingLiked = false;
 				$scope.changingView = false;
 			} else {
