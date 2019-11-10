@@ -33,10 +33,12 @@
         <md-content layout-padding="">
             <form name="userForm">
               <md-input-container>
-                <i class="material-icons">
-                  search
-                </i>
-                <input class='searchBar' type="text" ng-model="user.name">
+                <div class='searchBlock'>
+                  <i class="material-icons paddingTop">
+                    search
+                  </i>
+                  <input class='searchBar' type="text" ng-model="startingSearch.word" ng-change="search();">
+                </div>
                 <label>Search by product name, manufacturer, SKU, keyword</label>
               </md-input-container>
             </form>

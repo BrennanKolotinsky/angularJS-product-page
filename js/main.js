@@ -22,6 +22,21 @@ angular.module('sowingoModule', ['ngMaterial'])
 			console.log(res.data.products);
 		});
 
-		$scope.user = {name: 'yay'};
+		$scope.startingSearch = {word: ''};
+
+		$scope.search = function() {
+			console.log($scope.words);
+			
+			var searchedArr = [];
+			angular.forEach($scope.productData, function (value, key) {
+				if (value.name == '# 110 Crown Pliers') {
+					searchedArr.push(value);	
+				}
+            });
+
+            $scope.productData = searchedArr;
+
+			// $scope.productData = '';
+		}
 
 	}]);

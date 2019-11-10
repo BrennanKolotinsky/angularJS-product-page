@@ -22,3 +22,7 @@ div.searchBox {
 .searchBar {
 	width: 500px;
 }
+
+.searchBlock {
+	height: 30px;
+}
