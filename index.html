@@ -44,6 +44,16 @@
               <input class="searchBox" type="text" ng-model="currentSearch.word" ng-change="search();">
           </md-input-container>
           <div ng-if="!displayingLiked" class="vr">&nbsp;</div>
+
+          <md-input-container ng-if="!displayingCart && !displayingLiked">
+            <label>Categories</label>
+            <md-select ng-model="categories">
+              <md-option ng-repeat="category in categories">
+                {{category.category}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <div ng-if="!displayingCart && !displayingLiked" class="vr">&nbsp;</div>
           <md-button class="btn" ng-if="!displayingLiked" ng-click="displayCart($event)"><i class="material-icons iconTop">shopping_cart</i> View Cart</md-button>
           <div ng-if="!displayingCart" class="vr">&nbsp;</div>
           <md-button class="btn" ng-if="!displayingCart" ng-click="displayLiked($event)"><i class="material-icons iconTop">favorite</i> View Liked</md-button>

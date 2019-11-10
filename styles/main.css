@@ -1,6 +1,7 @@
 /*@img-size: 200px;*/
 
 img.prodImage {
+	border: 1px solid rgba(255, 230, 234, 0.8);
 	height: 240px;
 	width: 240px;
 	margin-top: 12px;

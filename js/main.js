@@ -71,6 +71,10 @@ angular.module('sowingoModule', ['ngMaterial'])
 		$scope.loaded = false;
 		$scope.changingView = false;
 
+		$scope.categories = [{category: "Example"},
+			{category: "Example2"},
+		];
+
 		$scope.search = function() {
 
 			// if no word is entered let's display all the products
