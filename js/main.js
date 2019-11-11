@@ -142,7 +142,7 @@ angular.module('sowingoModule', ['ngMaterial'])
 			angular.forEach($scope.inCart, function(cartedProds) {
 				var elem = angular.element(document.querySelector('#cart' + cartedProds.id));
 				StateManager.addClass('inCart', elem);
-				elem.innerHTML = 'remove_shopping_cart'; //apply the remove from shopping cart icon to all in cart
+				elem[0].innerHTML =	 'remove_shopping_cart'; //apply the remove from shopping cart icon to all in cart
 			});
 
 			// let's add the likes and add-to-cart clicks on the items
